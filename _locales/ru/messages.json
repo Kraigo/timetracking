@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Трекинг Времени",
+    "description": "Название приложения"
+  },
+  "appDesc": {
+    "message": "Трекинг Времени",
+    "description": "Описание приложения"
+  },
+  "appTitle": {
+    "message": "Трекинг Времени",
+    "description": "Заголовок"
+  }
+}

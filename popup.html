@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="root">
+
+        <div class="card">
+            <div class="card-title">
+                Total Time: {{ totalTime | time }}
+            </div>
+            <div class="card-body">
+                <div class="card-row"
+                    v-for="category in categories"
+                    :class="{tracking: currenctCategoryId === category.id}">
+                    <div class="no-wrap">
+                        <button @click="removeCategory(category)" class="btn btn-icon">
+                            &times;
+                        </button>
+                        {{ category.title }}
+                    </div>
+                    <div class="no-wrap">
+                        <button class="btn btn-icon" @click="addTime(category, 5*60*1000)">+5 min</button>
+                        <button class="btn btn-icon" @click="addTime(category, -5*60*1000)">-5 min</button>
+                    </div>
+                    <div class="text-right">
+                        {{ category.time | time }}
+                    </div>
+                    <div class="text-right">
+                        <button @click="track(category.id)" class="btn">
+                            {{
+                                currenctCategoryId === category.id
+                                ? 'Tracking'
+                                : 'Track'
+                            }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card-body">
+                <input type="text" v-model="newCagetoryTitle">
+                <button @click="addCategory" class="btn">Add category</button>
+            </div>
+            <br>
+            <div class="card-body">
+                <button @click="reset" class="btn">Reset Time</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/vue.min.js"></script>
+    <script src="/scripts/main.js"></script>
+    
+</body>
+</html>
